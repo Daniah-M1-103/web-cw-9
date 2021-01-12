@@ -8,15 +8,67 @@
   <link rel="icon" href="./assets/img/cookies.png" />
   <!-- CSS ملف -->
   <link rel="stylesheet" href="./assets/css/styles.css">
+  
   <!-- Bootstrap قالب -->
   <link rel="stylesheet" href="./assets/css/bootstrap-sketchy.css">
   <!-- font-awesome مكتبة -->
   <!-- قم باستيراد مكتبة font-awesome هنا أو أي مكتبة متاحة لأيقونات التحميل -->
+  <style>
+    /* Center the loader */
+    #loader {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 1;
+      width: 120px;
+      height: 120px;
+      margin: -76px 0 0 -76px;
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+    
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Add animation to "page content" */
+    .animate-bottom {
+      position: relative;
+      -webkit-animation-name: animatebottom;
+      -webkit-animation-duration: 1s;
+      animation-name: animatebottom;
+      animation-duration: 1s
+    }
+    
+    @-webkit-keyframes animatebottom {
+      from { bottom:-100px; opacity:0 } 
+      to { bottom:0px; opacity:1 }
+    }
+    
+    @keyframes animatebottom { 
+      from{ bottom:-100px; opacity:0 } 
+      to{ bottom:0; opacity:1 }
+    }
+    
+    #myDiv {
+      display: none;
+      text-align: center;
+    }
+    </style>
   <title>Cookie Factory</title>
 </head>
 
-<!-- <body onload="myFunction()"> -->
-<!-- <div id="page" style="display:none;"> -->
+<body onload="myFunction()">
+<div id="page" style="display:none;">
 <div id="sidebar">
   <img src="assets/img/cookies.png" class="logo" alt="website logo" />
   <h3>Cookie<br>Factory</h3>
@@ -24,9 +76,9 @@
     <h4 class="menu-item">
       <a href="./index.html">Cookies</a>
       <br></br>
-      <a href="">Add a Cookie</a>
+      <a href="./add.html">Add a Cookie</a>
       <br></br>
-      <a href="">See my Cart</a>
+      <a href="./checkout.html">See my Cart</a>
     </h4>
   </section>
 </div>
@@ -41,7 +93,8 @@
         <h5 class="card-title">
           <span>Creme Brulee Cookie</span>
         </h5>
-        <button type="button" class="btn btn-primary">Add to Cart</button>
+        <input value="0" id="0" type="number" />
+        <button onclick="addproduct(0); SaveItem() "  type="button" class="btn btn-primary">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -54,7 +107,8 @@
         <h5 class="card-title">
           <span>White Choco Orea Cookie</span>
         </h5>
-        <button type="button" class="btn btn-primary">Add to Cart</button>
+        <input value="0" id="1" type="number" />
+        <button  onclick="addproduct(1)" type="button" class="btn btn-primary">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -67,19 +121,34 @@
         <h5 class="card-title">
           <span>Mixed Dates Cookie</span>
         </h5>
-        <button type="button" class="btn btn-primary">Add to Cart</button>
+        <input value="0" id="2" type="number" />
+        <button onclick="addproduct(2)" type="button" class="btn btn-primary">Add to Cart</button>
       </div>
     </div>
   </div>
 </div>
+<div>
+  <ul id="cart"></ul>
+  <h5>total =</h5>
+  <h1 id="total">" 0KD "</h1>
 </div>
+</div>
+
 <!-- بونص 👑 -->
 <div id="loader">
   <!-- قم بإضافة أيقونة التحميل هنا -->
+
+<div id="loader"></div>
+
+<div style="display:none;" id="myDiv" class="animate-bottom">
+  <h2>Tada!</h2>
+  <p>Some text in my newly loaded page..</p>
+</div>
+
 </div>
 <script>
     // كود اختبار أيقونة التحميل
-  /*
+  
   let myVar;
   function myFunction() {
     myVar = setTimeout(showPage, 3000);
@@ -88,8 +157,9 @@
     document.getElementById("loader").style.display = "none";
     document.getElementById("page").style.display = "block";
   }
-  */
+  
 </script>
+<script src="./test.js"></script>
 </body>
 
 </html>

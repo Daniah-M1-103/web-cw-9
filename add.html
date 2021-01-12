@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- أيقونة الموقع -->
+        <link rel="icon" href="./assets/img/cookies.png" />
+        <!-- CSS ملف -->
+        <link rel="stylesheet" href="./assets/css/styles.css">
+        
+        <!-- Bootstrap قالب -->
+        <link rel="stylesheet" href="./assets/css/bootstrap-sketchy.css">
+        <!-- font-awesome مكتبة -->
+        <!-- قم باستيراد مكتبة font-awesome هنا أو أي مكتبة متاحة لأيقونات التحميل -->
+        <title> Request</title>
+      </head>
+</head>
+<body>
+    <div><label >email</label>
+        <input type="text" id="email">
+        <br>
+        <label >Request for a new flavour </label>
+        <input type="suggestion" id="suggestion">
+        <button class="btn btn-primary" onclick="submit()">submit</button>
+        <script>
+            function submit(){
+               let email = document.getElementById("email").value;
+               let suggestion = document.getElementById("suggestion").value;
+               window.open(`mailto:${email}?subject=Fromcookies&body=body`)
+            }
+        </script>
+    </div>
+    
+</body>
+</html>
